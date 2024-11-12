@@ -5,16 +5,14 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: '/popisKnjiga', component: () => import('pages/PopisKnjigaPage.vue') },
-      { path: '/onama', component: () => import('pages/o_nama.vue') },
-      { path: '/lokacija', component: () => import('pages/lokacija.vue') },
-      { path: '/login', component: () => import('pages/login.vue') },
-      { path: '/registracija', component: () => import('pages/registracija.vue') }
-
+      { path: '/pretrazivanje', component: () => import('pages/Pretraživanje.vue') },
+      { path: '/onama', component: () => import('pages/ONamaPage.vue') },
+      { path: '/lokacija', component: () => import('pages/LokacijaPage.vue') },
+      { path: '/login', component: () => import('pages/LoginPage.vue') },
+      { path: '/registracija', component: () => import('pages/RegistracijaPage.vue') }
     ]
   },
-
-  // Always leave this as last one,
-  // but you can also remove it
+  // Ruta za 404 stranicu:
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue')
@@ -22,3 +20,4 @@ const routes = [
 ]
 
 export default routes
+

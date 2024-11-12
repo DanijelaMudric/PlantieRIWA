@@ -28,14 +28,25 @@
         <q-item-label
           header
         >
-          Essential Links
+          Izbornik
         </q-item-label>
 
-        <EssentialLink
+       <q-item
           v-for="link in linksList"
           :key="link.title"
-          v-bind="link"
-        />
+          clickable
+          tag="router-link"
+          :to="link.to"
+        >
+          <q-item-section avatar>
+            <q-icon :name="link.icon" />
+          </q-item-section>
+
+          <q-item-section>
+            <q-item-label>{{ link.title }}</q-item-label>
+            <q-item-label caption>{{ link.caption }}</q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -56,47 +67,48 @@ defineOptions({
 const linksList = [
   {
     title: 'Naslovna',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    caption: 'Početna stranica',
+    icon: 'home',
+    to: '/'
   },
-  {
-    title: 'Popis svih knjiga ',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+   {
+    title: 'Popis svih knjiga',
+    caption: 'Pogledajte sve knjige',
+    icon: 'library_books',
+    to: '/popisKnjiga'
   },
   {
     title: 'Pretraživanje',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    caption: 'Pretraži knjige',
+    icon: 'search',
+    to: '/pretrazivanje'
   },
   {
     title: 'O nama',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    caption: 'Informacije o knjižnici',
+    icon: 'info',
+    to: '/onama'
   },
   {
     title: 'Lokacija',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    caption: 'Naša lokacija',
+    icon: 'place',
+    to: '/lokacija'
   },
   {
     title: 'Login',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
+    caption: 'Prijavite se',
+    icon: 'login',
+    to: '/login'
   },
   {
     title: 'Registracija',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    caption: 'Registrirajte se',
+    icon: 'person_add',
+    to: '/registracija'
   }
 ]
+
 
 const leftDrawerOpen = ref(false)
 
